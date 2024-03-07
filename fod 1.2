@@ -1,0 +1,30 @@
+import pandas as pd
+
+# Creating a sample DataFrame
+data = {'order_date': ['2023-01-15', '2023-02-20', '2023-03-10', '2023-04-25'],
+        'customer_id': [1, 2, 3, 4],
+        'product_id': [101, 102, 103, 104],
+        'order_amount': [50.0, 30.0, 25.0, 40.0]}
+
+customer_orders = pd.DataFrame(data)
+
+# Displaying the original DataFrame
+print("Original DataFrame:")
+print(customer_orders)
+
+# Function to transform the order date column
+def transform_order_data(dataframe):
+    # Convert 'order_date' column to datetime format
+    dataframe['order_date'] = pd.to_datetime(dataframe['order_date'])
+
+    # Extract month from 'order_date' and create a new column 'month'
+    dataframe['month'] = dataframe['order_date'].dt.month
+
+    return dataframe
+
+# Applying the transformation
+transformed_data = transform_order_data(customer_orders)
+
+# Displaying the transformed DataFrame
+print("\nTransformed DataFrame:")
+print(transformed_data)

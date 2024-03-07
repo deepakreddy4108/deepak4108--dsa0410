@@ -1,0 +1,32 @@
+import pandas as pd
+
+def integrate_datasets(orders_df, products_df):
+    # Merge the orders_df and products_df based on the "product_id" column
+    merged_df = pd.merge(orders_df, products_df, on="product_id", how="left")
+    
+    return merged_df
+
+# Assuming orders_df is your DataFrame containing the customer orders dataset
+# and products_df is your DataFrame containing the product dataset
+orders_df = pd.DataFrame({
+    'order_id': [1, 2, 3],
+    'product_id': [101, 102, 103]
+})
+
+products_df = pd.DataFrame({
+    'product_id': [101, 102, 103],
+    'product_name': ['Product A', 'Product B', 'Product C'],
+    'product_price': [10, 20, 30]
+})
+
+print("Original orders DataFrame:")
+print(orders_df)
+
+print("\nOriginal products DataFrame:")
+print(products_df)
+
+# Integrate the datasets
+merged_df = integrate_datasets(orders_df, products_df)
+
+print("\nMerged DataFrame:")
+print(merged_df)
