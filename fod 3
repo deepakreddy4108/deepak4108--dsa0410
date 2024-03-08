@@ -1,0 +1,18 @@
+import numpy as np
+
+# Step 2: Create the NumPy Array
+sales_data = np.array([
+    [100, 150, 200],  # Sales for product 1
+    [120, 180, 220],  # Sales for product 2
+    [90, 130, 170]    # Sales for product 3
+])
+
+# Step 3: Calculate Average Price
+average_price = np.mean(sales_data, axis=0)
+
+# Step 4: Print or Use the Result
+print("Average Price for Each Product:", average_price)
+
+# If you need an overall average for all products
+overall_average_price = np.mean(average_price)
+print("Overall Average Price:", overall_average_price)
